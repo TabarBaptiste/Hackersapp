@@ -1,0 +1,14 @@
+@startuml hacker
+class IHacker {
+  id? : string
+  ip : string
+  countryName : string
+  regionName : string
+  city : string
+}
+
+class Hacker
+
+IHacker <-- Hacker : uses
+
+@enduml
