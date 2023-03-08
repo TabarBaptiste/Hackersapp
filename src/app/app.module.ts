@@ -11,6 +11,7 @@ import { HomeComponent } from './component/home/home.component';
 import { HackerFormComponent } from './component/hacker-form/hacker-form.component';
 import { HackerListComponent } from './component/hacker-list/hacker-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
@@ -28,7 +29,8 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
