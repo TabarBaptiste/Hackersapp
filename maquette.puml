@@ -1,0 +1,25 @@
+@startsalt oui
+{{^==Formulaire
+title Hackers
+header some header \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+footer some footer
+caption Maquette du composant Home
+
+{+
+  ip    | "103.125.234.210"|[Lookup]
+  Pays | "Japon     "
+  Région | "Tokyo   "
+  Ville  | "Tokyo   "
+  [Cancel] | [  Ajouter/Modifer   ]
+}}|
+{ } |
+{^<b>Liste
+  {
+    ^  IP    ^^ 1.2.3.4^ 1.2.3.4^^  |
+    ^Pays               ^^ item 1^^ item 2^ |
+    ^Ville               ^ item 1^ item 2^ |
+    ^Opérations    ^ modifier supprimer^ modifier supprimer^ |
+  }
+}
+}
+@endsalt

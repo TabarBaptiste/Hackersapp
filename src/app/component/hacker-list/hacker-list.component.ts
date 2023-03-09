@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Hacker } from 'src/app/models/Hacker';
+import { ManagerHackerService } from 'src/app/service/manager-hacker.service';
 
 @Component({
   selector: 'app-hacker-list',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class HackerListComponent {
 
+  hackers: Hacker[]
+
+  constructor(private managerHackerService: ManagerHackerService) {
+    this.hackers = managerHackerService.getAllHackers()
+  }
+  editHacker(hacker: Hacker) {
+    this.managerHackerService.editHacker(hacker)
+  }
 }

@@ -1,21 +1,38 @@
+<style>
+  table.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
 <div class="hack">
-  <ul>
-    <li>
-      <span>IP : </span>
-      <!-- <span>{{ ip }}</span> -->
-    </li>
-    <li>
-      <span>Pays : </span>
-      <!-- <span>{{ countryName }}</span> -->
-    </li>
-    <li>
-      <span>Ville : </span>
-      <!-- <span>{{ city }}</span> -->
-    </li>
-    <li>
-      <span>Opérations : </span>
-      <button>Supprimer</button>
-      <button>Modifier</button>
-    </li>
-  </ul>
+  <table *ngIf="hackers.length > 0; else hackersEmpty" class="table is-striped center">
+    <thead>
+      <tr>
+        <th>IP</th>
+        <th>Pays</th>
+        <th>Région</th>
+        <th>Ville</th>
+        <th>Opérations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hacker of hackers">
+        <td>{{ hacker.ip }}</td>
+        <td>{{ hacker.countryName }}</td>
+        <td>{{ hacker.regionName }}</td>
+        <td>{{ hacker.city }}</td>
+        <td>
+          <i class="bi bi-pencil-square" (click)="editHacker(hacker)" style="color: green; cursor: pointer;">
+          </i>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <div style="font-weight:bold;">Nombre d'Hackers : {{ hackers.length }}</div>
+    </tfoot>
+  </table>
+
+  <ng-template #hackersEmpty>
+    <p>Pas de hackers ! </p>
+  </ng-template>
 </div>
