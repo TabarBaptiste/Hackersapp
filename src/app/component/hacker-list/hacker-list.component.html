@@ -5,7 +5,7 @@
   }
 </style>
 <div class="hack">
-  <table *ngIf="hackers.length > 0; else hackersEmpty" class="table is-striped center">
+  <table *ngIf="hackers.length < 0; else hackersEmpty" class="table is-striped center">
     <thead>
       <tr>
         <th>IP</th>

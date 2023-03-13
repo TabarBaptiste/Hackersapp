@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Hacker } from 'src/app/models/Hacker';
+import { IHacker } from 'src/app/models/iHacker';
 import { ManagerHackerService } from 'src/app/service/manager-hacker.service';
 
 @Component({
@@ -13,8 +14,16 @@ export class HackerListComponent {
 
   constructor(private managerHackerService: ManagerHackerService) {
     this.hackers = managerHackerService.getAllHackers()
+    managerHackerService.updateHackerListEvent.subscribe((hackers: IHacker[]) => {
+      console.log('Message truc')
+      this.hackers = hackers
+    })
   }
   editHacker(hacker: Hacker) {
     this.managerHackerService.editHacker(hacker)
   }
+  /*addHacker(hacker: Hacker) {
+    this.hackers.push(hacker);
+  }*/
+
 }

@@ -8,8 +8,9 @@ import { IHacker } from '../models/iHacker';
 export class ManagerHackerService {
 
   constructor() { }
-  
+
   @Output() editHackerEvent = new EventEmitter<IHacker>()
+  @Output() updateHackerListEvent = new EventEmitter<IHacker[]>()
 
   editHacker(hacker: IHacker) {
     this.editHackerEvent.emit(hacker)
@@ -21,6 +22,21 @@ export class ManagerHackerService {
    */
   getAllHackers(): Hacker[] {
     return JSON.parse(localStorage.getItem('badguys') || '[]');
+  }
+
+  addHacker(hacker: IHacker) {
+    let hackers = this.getAllHackers();
+    let h = hackers.find(badguy => badguy.ip == hacker.ip)
+    if (!h) {
+      hackers.push(hacker)
+    } else {
+      h.city = hacker.city
+      h.countryName = hacker.countryName
+      h.regionName = hacker.regionName
+    }
+    hackers.push(hacker);
+    localStorage.setItem('badguys', JSON.stringify(hackers));
+    this.updateHackerListEvent.emit(hackers)
   }
 
 }
