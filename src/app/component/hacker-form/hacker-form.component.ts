@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Hacker } from 'src/app/models/Hacker';
+import { ManagerHackerService } from 'src/app/service/manager-hacker.service';
 import { LookupIpService } from '../../service/lookup-ip.service';
 
 @Component({
@@ -9,8 +10,8 @@ import { LookupIpService } from '../../service/lookup-ip.service';
   styleUrls: ['./hacker-form.component.css']
 })
 export class HackerFormComponent {
-  managerHackerService: any;
-  constructor(private lookupIpService: LookupIpService) { }
+
+  constructor(private lookupIpService: LookupIpService, private managerHackerService: ManagerHackerService) { }
 
   hacker: Hacker = new Hacker('', '', '', '')
   ipAddress: string | null = null;
@@ -51,12 +52,12 @@ export class HackerFormComponent {
   onSubmit() {
     console.log("Data form")
     console.log(this.hackerForm.value)
-    debugger
+
     let hacker = this.hackerForm_to_hacker();
 
     console.log("Hacker object : ")
     console.log(JSON.stringify(hacker))
-    this.managerHackerService.saveHacker(hacker)
+    this.managerHackerService.addHacker(hacker)
   }
 
   clear() {

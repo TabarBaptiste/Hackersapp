@@ -17,6 +17,7 @@ export class HackerListComponent {
     managerHackerService.updateHackerListEvent.subscribe((hackers: IHacker[]) => {
       console.log('Message truc')
       this.hackers = hackers
+      console.log(hackers);
     })
   }
   editHacker(hacker: Hacker) {
