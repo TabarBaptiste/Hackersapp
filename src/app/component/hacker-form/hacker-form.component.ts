@@ -70,36 +70,36 @@ export class HackerFormComponent {
     })
   }
 
-// Convertir le formulaire en objet Hacker
-private hackerForm_to_hacker(): Hacker {
-  // Récupérer l'id s'il existe dans le formulaire
-  const id = this.hackerForm.controls.id.value;
-  // Créer un nouvel objet Hacker à partir des valeurs du formulaire
-  const hacker = new Hacker(
-    this.hackerForm.controls.ip.value ?? '',
-    this.hackerForm.controls.countryName.value ?? '',
-    this.hackerForm.controls.regionName.value ?? '',
-    this.hackerForm.controls.city.value ?? ''
-  );
-  // Si un id est présent dans le formulaire, l'assigner à l'objet Hacker créé
-  if (id) {
-    hacker.id = id;
+  // Convertir le formulaire en objet Hacker
+  private hackerForm_to_hacker(): Hacker {
+    // Récupérer l'id s'il existe dans le formulaire
+    const id = this.hackerForm.controls.id.value;
+    // Créer un nouvel objet Hacker à partir des valeurs du formulaire
+    const hacker = new Hacker(
+      this.hackerForm.controls.ip.value ?? '',
+      this.hackerForm.controls.countryName.value ?? '',
+      this.hackerForm.controls.regionName.value ?? '',
+      this.hackerForm.controls.city.value ?? ''
+    );
+    // Si un id est présent dans le formulaire, l'assigner à l'objet Hacker créé
+    if (id) {
+      hacker.id = id;
+    }
+    // Assigner l'objet Hacker créé à la propriété hacker de la classe
+    this.hacker = hacker;
+    // Retourner l'objet Hacker créé
+    return hacker;
   }
-  // Assigner l'objet Hacker créé à la propriété hacker de la classe
-  this.hacker = hacker;
-  // Retourner l'objet Hacker créé
-  return hacker;
-}
 
-// Convertir un objet Hacker en valeurs du formulaire
-private hacker_to_hackerForm(hacker: Hacker): void {
-  // Mettre à jour les valeurs du formulaire avec les propriétés de l'objet Hacker
-  this.hackerForm.patchValue({
-    ip: hacker.ip,
-    countryName: hacker.countryName,
-    regionName: hacker.regionName,
-    city: hacker.city
-  })
-}
+  // Convertir un objet Hacker en valeurs du formulaire
+  private hacker_to_hackerForm(hacker: Hacker): void {
+    // Mettre à jour les valeurs du formulaire avec les propriétés de l'objet Hacker
+    this.hackerForm.patchValue({
+      ip: hacker.ip,
+      countryName: hacker.countryName,
+      regionName: hacker.regionName,
+      city: hacker.city
+    })
+  }
 
 }
