@@ -23,8 +23,5 @@ export class HackerListComponent {
   editHacker(hacker: Hacker) {
     this.managerHackerService.editHacker(hacker)
   }
-  /*addHacker(hacker: Hacker) {
-    this.hackers.push(hacker);
-  }*/
 
 }

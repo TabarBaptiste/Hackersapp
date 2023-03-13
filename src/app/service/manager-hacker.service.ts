@@ -29,14 +29,16 @@ export class ManagerHackerService {
     let h = hackers.find(badguy => badguy.ip == hacker.ip)
     if (!h) {
       hackers.push(hacker)
+      console.log("Ajouté avec succès")
     } else {
       h.city = hacker.city
       h.countryName = hacker.countryName
       h.regionName = hacker.regionName
     }
-    hackers.push(hacker);
+    console.log("Modifié avec succès")
     localStorage.setItem('badguys', JSON.stringify(hackers));
-    this.updateHackerListEvent.emit(hackers)
+    /*this.updateHackerListEvent.emit(hackers)*/
   }
 
 }
+//localStorage.clear(); // Supprime toutes les données stockées dans localStorage

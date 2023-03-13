@@ -60,16 +60,6 @@ export class HackerFormComponent {
     this.managerHackerService.addHacker(hacker)
   }
 
-  clear() {
-    this.hackerForm.reset({
-      ip: '',
-      countryName: '',
-      regionName: '',
-      city: '',
-      id: undefined,
-    })
-  }
-
   // Convertir le formulaire en objet Hacker
   private hackerForm_to_hacker(): Hacker {
     // Récupérer l'id s'il existe dans le formulaire
@@ -99,6 +89,16 @@ export class HackerFormComponent {
       countryName: hacker.countryName,
       regionName: hacker.regionName,
       city: hacker.city
+    })
+  }
+
+  clear() {
+    this.hackerForm.reset({
+      ip: '',
+      countryName: '',
+      regionName: '',
+      city: '',
+      id: undefined,
     })
   }
 
